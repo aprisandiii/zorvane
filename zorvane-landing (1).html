@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zorvane — Perkakas digital untuk bisnis kecil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.44.0/iconfont/tabler-icons.min.css">
+<style>
+  :root {
+    --ink: #1C2B2D;
+    --paper: #F7F4ED;
+    --paper2: #EFEAE0;
+    --teal: #3D8B7D;
+    --terracotta: #D97757;
+    --plum: #7B5EA7;
+    --stone: #A8A29A;
+    --line: #D8D2C5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* HEADER */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  .logo span { color: var(--teal); }
+  .header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 72px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(36px, 5.5vw, 64px);
+    line-height: 1.08;
+    max-width: 13ch;
+  }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero p {
+    margin-top: 24px;
+    font-size: 17px;
+    color: #4A5250;
+    max-width: 50ch;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: 0.9; }
+  .btn-dark { background: var(--ink); color: var(--paper); }
+  .btn-wa { background: #25D366; color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  /* SECTION */
+  .section-head {
+    padding: 64px 0 32px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .section-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+
+  /* PRODUCT CARDS */
+  .products { display: flex; flex-direction: column; gap: 16px; padding-bottom: 80px; }
+  .pcard {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fff;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 680px) { .pcard { grid-template-columns: 210px 1fr; } }
+
+  .pcard-left {
+    padding: 28px 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  @media (min-width: 680px) {
+    .pcard-left { border-bottom: none; border-right: 1px solid var(--line); }
+  }
+  .pcode {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 5px 11px;
+    border-radius: 6px;
+    width: fit-content;
+    text-transform: uppercase;
+  }
+  .pname {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 1.1;
+  }
+  .pversion {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.06em;
+  }
+
+  .pcard-right { padding: 28px 24px; display: flex; flex-direction: column; gap: 18px; }
+  .pdesc { font-size: 15px; color: #4A5250; line-height: 1.7; max-width: 52ch; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 12px;
+    background: var(--paper2);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 5px 13px;
+    font-weight: 500;
+  }
+  .plink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid currentColor;
+    width: fit-content;
+    padding-bottom: 2px;
+    margin-top: auto;
+    transition: color 0.15s;
+  }
+  .plink:hover { color: var(--teal); }
+
+  /* accent per produk */
+  .ksr .pcode { background: #E0F3EE; color: #0A5C4A; }
+  .mtk .pcode { background: #FAEDE7; color: #7A2F14; }
+  .scn .pcode { background: #EFE9F7; color: #4B3170; }
+
+  /* STATS STRIP */
+  .stats {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+  }
+
+  /* FOOTER */
+  footer { padding: 72px 0 56px; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  @media (min-width: 680px) { .footer-grid { grid-template-columns: 1.2fr 1fr; } }
+  footer h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.25;
+    max-width: 18ch;
+  }
+  footer p { margin-top: 14px; font-size: 15px; color: #4A5250; max-width: 44ch; line-height: 1.7; }
+  .footer-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .info-rows { display: flex; flex-direction: column; }
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .info-row:first-child { padding-top: 0; }
+  .info-row:last-child { border-bottom: none; }
+  .info-key {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .info-val { font-weight: 500; text-align: right; }
+  .info-val a { color: var(--teal); text-decoration: none; }
+  .info-val a:hover { text-decoration: underline; }
+
+  .footer-bottom {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
+    color: var(--stone);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">Zorvane<span>.</span></div>
+    <div class="header-tag">Studio Perangkat Lunak · Bandung</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-eyebrow">Perkakas digital, dibuat untuk dipakai</div>
+    <h1>Sistem sederhana untuk masalah <em>operasional</em> sehari-hari.</h1>
+    <p>Zorvane membangun aplikasi ringan dan tepat guna untuk toko, bengkel, dan usaha kecil — tanpa fitur berlebihan, tanpa instalasi rumit. Cukup buka di browser, langsung kerja.</p>
+    <div class="hero-cta">
+      <a class="btn btn-dark" href="#produk">Lihat produk <i class="ti ti-arrow-down" aria-hidden="true"></i></a>
+      <a class="btn btn-wa" href="https://wa.me/6285798132246" target="_blank" rel="noopener">
+        <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Produk aktif</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Berjalan di browser</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">UMKM</div>
+      <div class="stat-label">Target pengguna</div>
+    </div>
+  </div>
+
+  <div id="produk">
+    <div class="section-head">
+      <h2>Produk</h2>
+      <div class="section-count">03 MODUL AKTIF</div>
+    </div>
+
+    <div class="products">
+
+      <!-- KasirMe -->
+      <article class="pcard ksr">
+        <div class="pcard-left">
+          <div class="pcode">KSR.01 — Kasir &amp; Toko</div>
+          <div class="pname">KasirMe</div>
+          <div class="pversion">v1.2 · Stabil</div>
+        </div>
+        <div class="pcard-right">
+          <p class="pdesc">
+            Aplikasi kasir lengkap untuk toko dan UMKM. Catat transaksi, kelola produk,
+            pantau stok menipis, dan lihat laporan laba/rugi harian — semua dari satu layar,
+            tanpa instalasi, langsung dari browser.
+          </p>
+          <div class="pills">
+            <span class="pill">Dashboard penjualan</span>
+            <span class="pill">Kasir + struk thermal</span>
+            <span class="pill">Manajemen produk &amp; stok</span>
+            <span class="pill">Laporan laba/rugi</span>
+            <span class="pill">Backup &amp; restore data</span>
+            <span class="pill">Mode gelap</span>
+            <span class="pill">QRIS / Tunai / Transfer</span>
+            <span class="pill">Installable (PWA)</span>
+          </div>
+          <a class="plink" href="https://kasirme.vercel.app" target="_blank" rel="noopener">
+            Coba KasirMe <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- MotoKas -->
+      <article class="pcard mtk">
+        <div class="pcard-left">
+          <div class="pcode">MTK.02 — Bengkel Motor</div>
+          <div class="pname">MotoKas</div>
+          <div class="pversion">v5.5 · Stabil</div>
+        </div>
+        <div class="pcard-right">
+          <p class="pdesc">
+            Kasir digital khusus bengkel motor. Catat jasa servis dan sparepart,
+            pantau laporan per mekanik, lacak stok kritis, dan ekspor data —
+            dirancang untuk alur kerja bengkel yang cepat dan berulang.
+          </p>
+          <div class="pills">
+            <span class="pill">Kasir jasa &amp; sparepart</span>
+            <span class="pill">Laporan per mekanik</span>
+            <span class="pill">Stok kritis</span>
+            <span class="pill">Produk terlaris</span>
+            <span class="pill">Export data</span>
+            <span class="pill">Google Sheets sync</span>
+            <span class="pill">Installable (PWA)</span>
+          </div>
+          <a class="plink" href="https://wa.me/6285798132246?text=Halo%20Zorvane%2C%20saya%20tertarik%20dengan%20MotoKas%20untuk%20bengkel%20saya." target="_blank" rel="noopener">
+            Tanya ketersediaan <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Scenttory -->
+      <article class="pcard scn">
+        <div class="pcard-left">
+          <div class="pcode">SCN.03 — Stok Parfum</div>
+          <div class="pname">Scenttory</div>
+          <div class="pversion">v1.0 · Aktif</div>
+        </div>
+        <div class="pcard-right">
+          <p class="pdesc">
+            Manajemen stok bibit parfum berbasis cloud. Kelola stok masuk,
+            catat penjualan, lakukan opname, dan pantau laporan multi-toko —
+            dibangun di atas Supabase untuk sinkronisasi data real-time.
+          </p>
+          <div class="pills">
+            <span class="pill">Stok masuk &amp; keluar</span>
+            <span class="pill">Manajemen penjualan</span>
+            <span class="pill">Opname stok</span>
+            <span class="pill">Laporan multi-toko</span>
+            <span class="pill">Master data bibit</span>
+            <span class="pill">Manajemen user</span>
+            <span class="pill">Cloud (Supabase)</span>
+          </div>
+          <a class="plink" href="https://wa.me/6285798132246?text=Halo%20Zorvane%2C%20saya%20tertarik%20dengan%20Scenttory%20untuk%20usaha%20parfum%20saya." target="_blank" rel="noopener">
+            Tanya ketersediaan <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <footer id="kontak" style="border-top: 1px solid var(--line);">
+    <div class="footer-grid">
+      <div>
+        <h2>Punya usaha yang butuh sistem pencatatan?</h2>
+        <p>Ceritakan kebutuhan Anda lewat WhatsApp — kami bantu tentukan modul yang paling sesuai, atau diskusi apakah perlu penyesuaian khusus.</p>
+        <div class="footer-cta">
+          <a class="btn btn-wa" href="https://wa.me/6285798132246?text=Halo%20Zorvane%2C%20saya%20ingin%20tanya%20tentang%20produk%20Anda." target="_blank" rel="noopener">
+            <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat di WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="info-rows">
+        <div class="info-row">
+          <span class="info-key">Studio</span>
+          <span class="info-val">Zorvane</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">WhatsApp</span>
+          <span class="info-val"><a href="https://wa.me/6285798132246">+62 857-9813-2246</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Lokasi</span>
+          <span class="info-val">Bandung Barat, Jawa Barat</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">KasirMe</span>
+          <span class="info-val"><a href="https://kasirme.vercel.app" target="_blank">kasirme.vercel.app</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Status</span>
+          <span class="info-val">Menerima klien baru</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Zorvane · Seluruh produk dikembangkan secara mandiri.</span>
+      <span>Bandung Barat · Indonesia</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
