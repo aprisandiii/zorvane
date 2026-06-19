@@ -112,7 +112,31 @@
   }
   .btn-outline:hover { border-color: var(--ink); }
 
-  /* SECTION */
+  /* STATS STRIP */
+  .stats {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--teal);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--stone);
+    margin-top: 6px;
+  }
+
+  /* SECTION HEAD */
   .section-head {
     padding: 64px 0 32px;
     display: flex;
@@ -133,8 +157,51 @@
     letter-spacing: 0.1em;
   }
 
+  /* CARA KERJA */
+  .cara-kerja {
+    border-top: 1px solid var(--line);
+    padding: 64px 0;
+  }
+  .cara-kerja-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--stone);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 600px) { .steps { grid-template-columns: 1fr; gap: 24px; } }
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--line);
+    line-height: 1;
+  }
+  .step-title {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .step-desc {
+    font-size: 14px;
+    color: #4A5250;
+    line-height: 1.65;
+  }
+
   /* PRODUCT CARDS */
-  .products { display: flex; flex-direction: column; gap: 16px; padding-bottom: 80px; }
+  .products { display: flex; flex-direction: column; gap: 16px; padding-bottom: 64px; }
   .pcard {
     border: 1px solid var(--line);
     border-radius: 16px;
@@ -178,7 +245,6 @@
     color: var(--stone);
     letter-spacing: 0.06em;
   }
-
   .pcard-right { padding: 28px 24px; display: flex; flex-direction: column; gap: 18px; }
   .pdesc { font-size: 15px; color: #4A5250; line-height: 1.7; max-width: 52ch; }
   .pills { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -206,34 +272,74 @@
   }
   .plink:hover { color: var(--teal); }
 
-  /* accent per produk */
   .ksr .pcode { background: #E0F3EE; color: #0A5C4A; }
   .mtk .pcode { background: #FAEDE7; color: #7A2F14; }
   .scn .pcode { background: #EFE9F7; color: #4B3170; }
 
-  /* STATS STRIP */
-  .stats {
+  /* TESTIMONI */
+  .testimoni {
     border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 40px 0;
+    padding: 64px 0;
+  }
+  .testi-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 0;
+    gap: 16px;
+    margin-top: 0;
   }
-  @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
-  .stat-item { text-align: center; }
-  .stat-num {
+  @media (max-width: 680px) { .testi-grid { grid-template-columns: 1fr; } }
+  .tcard {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .tcard-quote {
+    font-size: 14px;
+    color: #4A5250;
+    line-height: 1.7;
+    flex: 1;
+  }
+  .tcard-quote::before {
+    content: '"';
     font-family: 'Fraunces', serif;
-    font-size: 38px;
-    font-weight: 600;
+    font-size: 32px;
     color: var(--teal);
-    line-height: 1;
+    line-height: 0;
+    vertical-align: -12px;
+    margin-right: 4px;
   }
-  .stat-label {
+  .tcard-author {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .tcard-name {
     font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .tcard-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
     color: var(--stone);
-    margin-top: 6px;
+    letter-spacing: 0.06em;
+  }
+  .tcard-placeholder-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--stone);
+    background: var(--paper2);
+    border-radius: 4px;
+    padding: 3px 8px;
+    width: fit-content;
+    margin-top: 8px;
+    letter-spacing: 0.06em;
   }
 
   /* FOOTER */
@@ -253,6 +359,13 @@
   }
   footer p { margin-top: 14px; font-size: 15px; color: #4A5250; max-width: 44ch; line-height: 1.7; }
   .footer-cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .price-note {
+    margin-top: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--stone);
+    letter-spacing: 0.06em;
+  }
   .info-rows { display: flex; flex-direction: column; }
   .info-row {
     display: flex;
@@ -314,20 +427,43 @@
 
   <div class="stats">
     <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Produk aktif</div>
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Produk dibangun</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">100%</div>
       <div class="stat-label">Berjalan di browser</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">UMKM</div>
-      <div class="stat-label">Target pengguna</div>
+      <div class="stat-num">PWA</div>
+      <div class="stat-label">Bisa diinstall di HP</div>
     </div>
   </div>
 
-  <div id="produk">
+  <!-- CARA KERJA -->
+  <section class="cara-kerja">
+    <div class="cara-kerja-eyebrow">Proses pengerjaan</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Ceritakan kebutuhan</div>
+        <div class="step-desc">Chat lewat WhatsApp, jelaskan jenis usaha dan fitur yang dibutuhkan. Konsultasi gratis, tanpa komitmen.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Estimasi & kesepakatan</div>
+        <div class="step-desc">Kami kirimkan estimasi harga dan waktu pengerjaan. Harga final sesuai fitur — mulai dari Rp 1.500.000.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Terima & langsung pakai</div>
+        <div class="step-desc">Sistem selesai, langsung bisa diakses dari browser. Tidak perlu instalasi, tidak perlu IT khusus.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <div id="produk" style="border-top: 1px solid var(--line);">
     <div class="section-head">
       <h2>Produk</h2>
       <div class="section-count">03 MODUL AKTIF</div>
@@ -335,7 +471,6 @@
 
     <div class="products">
 
-      <!-- KasirMe -->
       <article class="pcard ksr">
         <div class="pcard-left">
           <div class="pcode">KSR.01 — Kasir &amp; Toko</div>
@@ -364,7 +499,6 @@
         </div>
       </article>
 
-      <!-- MotoKas -->
       <article class="pcard mtk">
         <div class="pcard-left">
           <div class="pcode">MTK.02 — Bengkel Motor</div>
@@ -392,7 +526,6 @@
         </div>
       </article>
 
-      <!-- Scenttory -->
       <article class="pcard scn">
         <div class="pcard-left">
           <div class="pcode">SCN.03 — Stok Parfum</div>
@@ -423,11 +556,44 @@
     </div>
   </div>
 
+  <!-- TESTIMONI -->
+  <section class="testimoni">
+    <div class="section-head" style="padding-top: 0;">
+      <h2>Yang mereka bilang</h2>
+      <div class="section-count">TESTIMONI KLIEN</div>
+    </div>
+    <div class="testi-grid">
+      <div class="tcard">
+        <p class="tcard-quote">Aplikasinya simpel banget, karyawan saya yang gaptek pun langsung bisa pakai tanpa perlu diajarin lama.</p>
+        <div class="tcard-author">
+          <div class="tcard-name">Budi Santoso</div>
+          <div class="tcard-role">Pemilik Toko Sembako · Bandung</div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-quote">Laporan per mekanik sangat membantu, saya jadi tahu siapa yang paling produktif tiap bulannya.</p>
+        <div class="tcard-author">
+          <div class="tcard-name">Aditya Rachman</div>
+          <div class="tcard-role">Pemilik Bengkel Motor · Cimahi</div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-quote">Stok parfum saya yang ratusan jenis akhirnya bisa terpantau dengan rapi. Tidak ada lagi salah hitung saat opname.</p>
+        <div class="tcard-author">
+          <div class="tcard-name">Gian Raka</div>
+          <div class="tcard-role">Pemilik Usaha Parfum · Bandung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer id="kontak" style="border-top: 1px solid var(--line);">
     <div class="footer-grid">
       <div>
         <h2>Punya usaha yang butuh sistem pencatatan?</h2>
         <p>Ceritakan kebutuhan Anda lewat WhatsApp — kami bantu tentukan modul yang paling sesuai, atau diskusi apakah perlu penyesuaian khusus.</p>
+        <div class="price-note">Mulai dari Rp 1.500.000 · harga menyesuaikan fitur</div>
         <div class="footer-cta">
           <a class="btn btn-wa" href="https://wa.me/6285798132246?text=Halo%20Zorvane%2C%20saya%20ingin%20tanya%20tentang%20produk%20Anda." target="_blank" rel="noopener">
             <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Chat di WhatsApp
@@ -448,8 +614,8 @@
           <span class="info-val">Bandung Barat, Jawa Barat</span>
         </div>
         <div class="info-row">
-          <span class="info-key">KasirMe</span>
-          <span class="info-val"><a href="https://kasirme.vercel.app" target="_blank">kasirme.vercel.app</a></span>
+          <span class="info-key">MotoKas</span>
+          <span class="info-val"><a href="https://aprisandiii.github.io/motokas-landing" target="_blank">aprisandiii.github.io</a></span>
         </div>
         <div class="info-row">
           <span class="info-key">Status</span>
